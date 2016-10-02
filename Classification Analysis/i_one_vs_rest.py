@@ -1,7 +1,8 @@
-
-# coding: utf-8
-
-# In[1]:
+'''
+Use linear SVM for multiple class classification, one to one class
+Created February 2016
+@Author: Muchen Xu
+'''
 
 from sklearn.datasets import fetch_20newsgroups
 from nltk import word_tokenize
