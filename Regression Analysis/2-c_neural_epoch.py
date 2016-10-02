@@ -1,3 +1,10 @@
+'''
+Use a neural network regression model and explore the influence of major parameters
+Created Jan 2016
+@Author: Muchen Xu
+
+'''
+
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing

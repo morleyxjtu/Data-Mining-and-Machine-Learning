@@ -1,3 +1,10 @@
+'''
+Explore the influence of tree depth on the performance in RMSE
+Created Jan 2016
+@Author: Muchen Xu
+
+'''
+
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -11,13 +18,13 @@ path=os.getcwd()
 train=pd.read_csv(path+'/network_backup_dataset.csv')
 
 def convert(data):
-	number = preprocessing.LabelEncoder()
-	data['Day of Week'] = number.fit_transform(data['Day of Week'])
-	data['Work-Flow-ID'] = number.fit_transform(data['Work-Flow-ID'])
-	data['File Name'] = number.fit_transform(data['File Name'])
-	data['Size of Backup (GB)'] = data['Size of Backup (GB)'] * 1E9
-	data['Size of Backup (GB)'] = data['Size of Backup (GB)'].astype(int)
-	return data
+        number = preprocessing.LabelEncoder()
+        data['Day of Week'] = number.fit_transform(data['Day of Week'])
+        data['Work-Flow-ID'] = number.fit_transform(data['Work-Flow-ID'])
+        data['File Name'] = number.fit_transform(data['File Name'])
+        data['Size of Backup (GB)'] = data['Size of Backup (GB)'] * 1E9
+        data['Size of Backup (GB)'] = data['Size of Backup (GB)'].astype(int)
+        return data
 
 train = convert(train)
 
@@ -32,10 +39,9 @@ y_validate = validate['Size of Backup (GB)']
 x_validate = validate.drop('Size of Backup (GB)', 1)
 x_validate = x_validate.drop('is_train',1).as_matrix()
 
-
-for i in range(100):
-	treenum=i+1
-	rf = RandomForestRegressor(n_estimators=treenum, max_features = 6, max_depth = 9)
+for i in range(39):
+	depth=i+1
+	rf = RandomForestRegressor(n_estimators=20, max_features = 6, max_depth = depth)
 	rf.fit(x_train, y_train)
 	disbursed = rf.predict(x_validate)
 	sum1=0
