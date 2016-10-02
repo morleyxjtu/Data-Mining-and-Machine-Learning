@@ -1,7 +1,6 @@
 # Data-Mining-and-Machine-Learning
 
-UCLA EE239 Big Data class projects
+Projects related to data mining, machine learning and statistical analysis. 
 
-Key words: Data mining, machine learning, python
-
-Group projects with Hao Wu and Yuyin Zhou
+Originally created: Jan-Mar 2016
+@author: Muchen
