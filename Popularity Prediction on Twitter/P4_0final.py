@@ -1,12 +1,13 @@
+'''
+Linear regresion using extra features to predict number of tweets
+Used Random Forrest Regression model
+Used cross_validation
+For tweets all time
+Extra features to explore: co-occurrence times of other hashtags; author count; mention count; Special signals; Emotion count;
 
-# coding: utf-8
-
-# In[1]:
-
-#features to explore: co-occurrence times of other hashtags; author count; mention count; Special signals; Emotion count;
-
-
-# In[48]:
+Created Mar 2016
+@author: Muchen Xu
+'''
 
 import json
 from datetime import datetime

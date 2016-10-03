@@ -1,15 +1,19 @@
-
-# coding: utf-8
-
-# In[17]:
-
+'''
+Linear regresion using 5 features to predict number of tweets
+Created Mar 2016
+@author: Muchen Xu
+'''
+##
 import json
 from datetime import datetime
 import time
-import json
+import statsmodels.api as sm
+import numpy as np
+##
+
+#read each line in the file and stored it in a JSON string
 f = open('test_data/sample1_period1.txt')
 line = f.readline()
-
 tweet_time = []
 while len(line)!=0:
     tweet = json.loads(line)
@@ -18,13 +22,8 @@ while len(line)!=0:
 f.close()
 
 
-# In[18]:
-
 initial = tweet_time[0]
 last = tweet_time[-1]
-
-
-# In[19]:
 
 g = open('test_data/sample1_period1.txt')
 line = g.readline()
@@ -59,21 +58,7 @@ timeofDay = []
 for j in range(0, (last-initial)/3600+1):
     timeofDay.append(j+initialHour)
 
-
-# In[20]:
-
-# print num_tweet
-# print num_retweet
-# print num_follower
-# print max_followers
-# print timeofDay
-
-
-# In[21]:
-
-import numpy as np
 Y = np.asarray(num_tweet[1:])
-
 X = []
 for n in range (0, len(num_tweet)-1):
     element = []
@@ -84,11 +69,6 @@ for n in range (0, len(num_tweet)-1):
     element.append(timeofDay[n])
     X.append(element)
         
-
-
-# In[22]:
-
-import statsmodels.api as sm
 mod = sm.OLS(Y, X)
 res = mod.fit()
 print res.summary()

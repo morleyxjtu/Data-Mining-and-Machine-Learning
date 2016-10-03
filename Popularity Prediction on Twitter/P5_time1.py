@@ -1,7 +1,9 @@
+'''
+Use previous linear regression model for time period #1 to predict number of tweets
 
-# coding: utf-8
-
-# In[2]:
+Created Mar 2016
+@author: Muchen Xu
+'''
 
 import json
 from datetime import datetime

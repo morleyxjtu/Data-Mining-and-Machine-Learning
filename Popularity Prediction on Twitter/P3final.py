@@ -1,17 +1,17 @@
-
-# coding: utf-8
-
-# In[1]:
-
-#features to explore: co-occurrence times of other hashtags; author count; mention count; Special signals; Emotion count;
-
-
-# In[32]:
-
+'''
+Linear regresion using extra features to predict number of tweets
+Used Random Forrest Regression model
+Extra features to explore: co-occurrence times of other hashtags; author count; mention count; Special signals; Emotion count;
+Created Mar 2016
+@author: Muchen Xu
+'''
+##
 import json
 from datetime import datetime
 import time
 import json
+##
+
 f = open('test_data/sample1_period1.txt')
 line = f.readline()
 
@@ -22,14 +22,9 @@ while len(line)!=0:
     line = f.readline()
 f.close()
 
-
-# In[33]:
-
 initial = tweet_time[0]
 last = tweet_time[-1]
 
-
-# In[34]:
 
 g = open('test_data/sample1_period1.txt')
 line = g.readline()
@@ -105,11 +100,6 @@ for n in range (0, len(num_tweet)-1):
     X.append(element)
     
 X = np.asarray(X)
-
-#print X
-
-
-# In[112]:
 
 from sklearn.ensemble import RandomForestRegressor
 rf = RandomForestRegressor(n_estimators=40, max_features = 9, max_depth = 10)

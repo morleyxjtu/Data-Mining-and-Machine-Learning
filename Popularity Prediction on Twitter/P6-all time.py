@@ -1,7 +1,9 @@
+'''
+Predict and reveal user`s real-time emotion using tweets
 
-# coding: utf-8
-
-# In[3]:
+Created Mar 2016
+@author: Muchen Xu
+'''
 
 import json
 import time
